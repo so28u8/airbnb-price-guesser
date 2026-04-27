@@ -1,29 +1,29 @@
 # Budapest Airbnb Price Estimator 🇭🇺🏡
 
-Egy modern, interaktív webalapú dashboard és gépi tanulásos árbecslő alkalmazás, amely a budapesti Airbnb piac adatait elemzi, és segít a szállásadóknak az optimális éjszakánkénti ár meghatározásában.
+A modern, interactive web-based dashboard and machine learning price estimator that analyzes the Budapest Airbnb market data and helps hosts determine the optimal nightly price for their listings.
 
-## 🌟 Funkciók
-* **Piaci Térkép & Hőtérkép**: A budapesti szállások átlagárainak és eloszlásának vizualizációja interaktív Plotly térképeken (sűrűség és kerületi buborék nézet).
-* **Statisztikák & Elemzések**: Top 10 legdrágább kerület, árak eloszlása szobatípusonként, és általános piaci mutatók (medián ár, átlagos értékelések).
-* **Árbecslő Modell**: Egy `HistGradientBoostingRegressor` alapú gépi tanulási modell, amely a lakás elhelyezkedése (kerület), mérete (hálók, fürdők száma), típusa, és a várható értékelések alapján megbecsüli az optimális kiadási árat.
+## 🌟 Features
+* **Market Map & Heatmap**: Visualization of average prices and distribution of Budapest accommodations on interactive Plotly maps (density and district bubble views).
+* **Statistics & Insights**: Top 10 most expensive districts, price distribution by room type, and general market metrics (median price, average ratings).
+* **Price Estimator Model**: A machine learning model based on `HistGradientBoostingRegressor` that estimates the optimal rental price based on the location (district), size (bedrooms, bathrooms), type, and expected ratings.
 
-## 🛠 Technológiai Stack
-* **Nyelv**: Python 3.x
-* **Webes keretrendszer**: [Streamlit](https://streamlit.io/) (egyedi, sötét dizájnnal és üveghatással - *glassmorphism*)
-* **Adatfeldolgozás**: Pandas, NumPy
-* **Gépi Tanulás**: Scikit-learn (HistGradientBoostingRegressor, Pipeline, RandomizedSearchCV), Joblib
-* **Vizualizáció**: Plotly Express & Graph Objects
+## 🛠 Tech Stack
+* **Language**: Python 3.x
+* **Web Framework**: [Streamlit](https://streamlit.io/) (featuring a custom dark design with glassmorphism)
+* **Data Processing**: Pandas, NumPy
+* **Machine Learning**: Scikit-learn (HistGradientBoostingRegressor, Pipeline, RandomizedSearchCV), Joblib
+* **Visualization**: Plotly Express & Graph Objects
 
-## 🚀 Futtatás lokálisan
+## 🚀 Running Locally
 
-### 1. Repository klónozása
+### 1. Clone the repository
 ```bash
 git clone https://github.com/so28u8/airbnb-price-guesser.git
 cd airbnb-price-guesser
 ```
 
-### 2. Függőségek telepítése
-Hozd létre és aktiváld a virtuális környezetet, majd telepítsd a szükséges csomagokat:
+### 2. Install dependencies
+Create and activate a virtual environment, then install the required packages:
 ```bash
 python -m venv venv
 # Windows: venv\Scripts\activate
@@ -32,24 +32,24 @@ python -m venv venv
 pip install streamlit pandas numpy scikit-learn plotly joblib
 ```
 
-### 3. Adatkészlet letöltése (opcionális a futtatáshoz, kötelező a tanításhoz)
-Mivel az eredeti `listings.csv` fájl túl nagy, nem része a repozitóriumnak. Ha újra szeretnéd tanítani a modellt:
-1. Töltsd le a budapesti adatokat az [Inside Airbnb](https://insideairbnb.com/get-the-data/) oldalról.
-2. Nevezd el `listings.csv`-nek és tedd a projekt gyökérmappájába.
-3. Futtasd a modell tanítását: `python program/model_trainer.py`
+### 3. Download the dataset (Optional for running, Required for training)
+Since the original `listings.csv` file is too large, it is not included in the repository. If you want to retrain the model:
+1. Download the Budapest data from [Inside Airbnb](https://insideairbnb.com/get-the-data/).
+2. Name it `listings.csv` and place it in the project root directory.
+3. Run the model training script: `python program/model_trainer.py`
 
-*(A repó tartalmazza a már betanított modellt a `program/model/` mappában, így anélkül is elindul az alkalmazás!)*
+*(The repository already contains the trained model in the `program/model/` directory, so the application will run without the dataset!)*
 
-### 4. Az alkalmazás indítása
-A projekt gyökérmappájából (vagy a `program` mappából) indítsd el a Streamlit szervert:
+### 4. Start the application
+From the project root directory (or the `program` directory), start the Streamlit server:
 ```bash
 streamlit run program/app.py
 ```
-Az alkalmazás automatikusan megnyílik a böngésződben a `http://localhost:8501` címen.
+The application will automatically open in your browser at `http://localhost:8501`.
 
-## 📁 Projekt struktúra
-* `program/app.py` - A Streamlit dashboard és a UI fő kódja.
-* `program/data_loader.py` - Az adatok tisztításáért és betöltéséért felelős szkript.
-* `program/model_trainer.py` - A gépi tanulási modell betanítását és optimalizálását végző szkript.
-* `program/model/` - A már betanított modellt (`price_model.pkl`) és kerületi statisztikákat tartalmazó mappa.
-* `spec.pdf` - A projekt eredeti specifikációja.
+## 📁 Project Structure
+* `program/app.py` - The main code for the Streamlit dashboard and UI.
+* `program/data_loader.py` - Script responsible for data cleaning and loading.
+* `program/model_trainer.py` - Script for training and optimizing the machine learning model.
+* `program/model/` - Directory containing the pre-trained model (`price_model.pkl`) and district statistics.
+* `spec.pdf` - The original project specification.
