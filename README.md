@@ -1,8 +1,8 @@
-# Budapest Airbnb Price Estimator 🇭🇺🏡
+# Budapest Airbnb Price Estimator 
 
 A modern, interactive web-based dashboard and machine learning price estimator that analyzes the Budapest Airbnb market data and helps hosts determine the optimal nightly price for their listings.
 
-## 🌟 Features
+## Features
 * **Market Map & Heatmap**: Visualization of average prices and distribution of Budapest accommodations on interactive Plotly maps (density and district bubble views).
 * **Statistics & Insights**: Top 10 most expensive districts, price distribution by room type, and general market metrics (median price, average ratings).
 * **Price Estimator Model**: A machine learning model based on `HistGradientBoostingRegressor` that estimates the optimal rental price based on the location (district), size (bedrooms, bathrooms), type, and expected ratings.
@@ -14,7 +14,7 @@ A modern, interactive web-based dashboard and machine learning price estimator t
 * **Machine Learning**: Scikit-learn (HistGradientBoostingRegressor, Pipeline, RandomizedSearchCV), Joblib
 * **Visualization**: Plotly Express & Graph Objects
 
-## 🚀 Running Locally
+##  Running Locally
 
 ### 1. Clone the repository
 ```bash
@@ -47,7 +47,7 @@ streamlit run program/app.py
 ```
 The application will automatically open in your browser at `http://localhost:8501`.
 
-## 📁 Project Structure
+## Project Structure
 * `program/app.py` - The main code for the Streamlit dashboard and UI.
 * `program/data_loader.py` - Script responsible for data cleaning and loading.
 * `program/model_trainer.py` - Script for training and optimizing the machine learning model.
